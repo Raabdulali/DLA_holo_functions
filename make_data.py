@@ -53,6 +53,11 @@ def scatter(x,y,z,particle_number, radius, detector, medium_index, illum_wavelen
 
     return field
 
+
+
+
+
+#Main function
 def make_field(particle_number, angle_1, angle_2, radius, height):
     
     #Setting up medium, camera, and laser variables 
