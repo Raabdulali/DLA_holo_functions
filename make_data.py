@@ -64,7 +64,7 @@ def make_field(particle_number, angle_1, angle_2, radius, height):
     detector = hp.detector_grid(shape=shape, spacing=spacing)
     
     #read in data
-    df = pd.read_csv('chosen_point_cloud')
+    df = pd.read_csv('dla_463.csv')
     x = df['x'].tolist()
     y = df['y'].tolist()
     z = df['z'].tolist()
