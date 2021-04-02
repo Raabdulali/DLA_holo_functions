@@ -72,7 +72,7 @@ def make_field(particle_number, angle_1, angle_2, radius, height):
     data_name = (str(random.randint(0,19)) + '.csv')
                  
     #read in data
-    df = pd.read_csv('data_name')
+    df = pd.read_csv(data_name)
     x = df['x'].tolist()
     y = df['y'].tolist()
     z = df['z'].tolist()
