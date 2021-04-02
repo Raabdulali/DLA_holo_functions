@@ -68,8 +68,11 @@ def make_field(particle_number, angle_1, angle_2, radius, height):
     illum_polarization = (1, 0)
     detector = hp.detector_grid(shape=shape, spacing=spacing)
     
+    #choose random data_set
+    data_name = (str(random.randint(0,19)) + '.csv')
+                 
     #read in data
-    df = pd.read_csv('dla_463.csv')
+    df = pd.read_csv('data_name')
     x = df['x'].tolist()
     y = df['y'].tolist()
     z = df['z'].tolist()
