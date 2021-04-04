@@ -34,12 +34,12 @@ def rotation(x,y,z,angle,axis):
 
 
 def scatter(x,y,z,particle_number, radius, detector, medium_index, illum_wavelen,
-                     illum_polarization, theory=Mie):
+                     illum_polarization, theory=Mie, refractive):
     
     #create all spheres in object
     compiled = []
     for item in range(len(x)):
-        compiled.append(Sphere(n=1.6, r=radius, center=(np.around(x[item],3), np.around(y[item],3), np.around(z[item],3))))
+        compiled.append(Sphere(n=refractive, r=radius, center=(np.around(x[item],3), np.around(y[item],3), np.around(z[item],3))))
     collection = Spheres(compiled)
 
 
@@ -64,7 +64,7 @@ def make_field(particle_number, height, config):
     
     #Particle_params
     radius = random.random(config['particle']['a_p'])
-    
+    refractive = random.random(config['particle']['n_p'])
     
     #choose random data_set
     data_name = (str(random.randint(0,19)) + '.csv')
@@ -96,7 +96,7 @@ def make_field(particle_number, height, config):
                         
     #scatter
     field = scatter(x,y,z,particle_number, radius, detector, medium_index, illum_wavelen,
-                     illum_polarization, theory=Mie)
+                     illum_polarization, theory=Mie, refractive=refractive)
     return field
 
 
