@@ -53,20 +53,25 @@ def scatter(x,y,z,particle_number, radius, detector, medium_index, illum_wavelen
 
     return field
 
-
-
-
-
-#Main function
-def make_field(particle_number, angle_1, angle_2, radius, height):
+def make_field(particle_number, height, config):
+    
+    
+    
+    #Angles to rotate agg
+    angle_1 = random.randint(1,360)
+    angle_2 = random.randint(1,360)
     
     #Setting up medium, camera, and laser variables 
-    shape = 200
-    spacing = 0.048
-    medium_index = 1.34
-    illum_wavelen = 0.447
+    shape,_ = config['shape']
+    spacing = config['instrument']['magnification']
+    medium_index = config['instrument']['n_m']
+    illum_wavelen = config['instrument']['wavelength']
     illum_polarization = (1, 0)
     detector = hp.detector_grid(shape=shape, spacing=spacing)
+    
+    #Particle_params
+    radius = random.random(config['particle']['a_p'])
+    
     
     #choose random data_set
     data_name = (str(random.randint(0,19)) + '.csv')
@@ -107,9 +112,8 @@ def make_field(particle_number, angle_1, angle_2, radius, height):
 ################ To run, unparenthesis the rest of the code #################
 
 
-"""angle_1 = random.randint(1,360)
-angle_2 = random.randint(1,360)        
-field = make_field(particle_number = 10, angle_1=angle_1, angle_2=angle_2, radius = .1, height = 3)"""
+       
+#field = make_field(particle_number = 10, height = 3, config)
 
 
 
