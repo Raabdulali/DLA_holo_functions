@@ -8,10 +8,6 @@ import pandas as pd
 import numpy as np
 
 
-
-
-
-
 #helping functions
 def rotation(x,y,z,angle,axis):
     x1=[]
@@ -50,12 +46,9 @@ def scatter(x,y,z,particle_number, radius, detector, medium_index, illum_wavelen
     #Actual field calculations
     field = calc_field(detector, collection, medium_index, illum_wavelen,
                      illum_polarization, theory=Mie)
-
     return field
 
 def make_field(particle_number, height, config):
-    
-    
     
     #Angles to rotate agg
     angle_1 = random.randint(1,360)
